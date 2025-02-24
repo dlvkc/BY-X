@@ -1,60 +1,45 @@
-name: Build and Push Xray-core
+name: Build and Release Xray-core
 
 on:
   push:
     branches:
-      - main  # 监听 main 分支的变更
+      - main
   pull_request:
     branches:
-      - main  # 在 PR 时触发
-  workflow_dispatch:  # 允许手动触发
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ 检出仓库代码
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ 安装 Go 1.19.5
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
           go-version: 1.19.5
 
-      # 3️⃣ 下载 Xray-core 源码
       - name: Download Xray-core source code
         run: wget https://github.com/XTLS/Xray-core/archive/refs/tags/v1.7.2.zip
 
-      # 4️⃣ 解压 Xray-core
       - name: Unzip Xray-core
         run: unzip v1.7.2.zip
 
-      # 5️⃣ 替换 external.go 和 core.go
       - name: Replace external.go and core.go
         run: |
           cp -f ./core.go ./Xray-core-1.7.2/core/core.go
 
-      # 6️⃣ 编译 Xray-core
       - name: Build Xray-core
         run: |
           cd Xray-core-1.7.2
           go build -o xray -trimpath -ldflags "-s -w -buildid=" ./main
-          mv xray ../xray  # 移动编译好的文件到根目录
+          mv xray ../aaa  # 👈 重命名编译好的文件为 aaa
 
-      # 7️⃣ 提交编译后的 xray 文件到仓库
-      - name: Commit built xray binary
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add xray
-          git commit -m "Build Xray-core binary" || echo "No changes to commit"
-
-      # 8️⃣ 推送更改到 GitHub 仓库
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Upload compiled binary
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          name: aaa
+          path: aaa  # 👈 上传重命名后的文件
