@@ -1,4 +1,4 @@
-name: Build and Release Xray-core
+name: Build and Push Xray-core
 
 on:
   push:
@@ -36,10 +36,11 @@ jobs:
         run: |
           cd Xray-core-1.7.2
           go build -o xray -trimpath -ldflags "-s -w -buildid=" ./main
-          mv xray ../aaa  # 👈 重命名编译好的文件为 aaa
+          mv xray ../xray  # 移动编译好的文件到仓库根目录
+
 
       - name: Upload compiled binary
         uses: actions/upload-artifact@v3
         with:
-          name: aaa
-          path: aaa  # 👈 上传重命名后的文件
+          name: xray-binary
+          path: xray
