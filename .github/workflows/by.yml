@@ -36,11 +36,11 @@ jobs:
         run: |
           cd Xray-core-1.7.2
           go build -o xray -trimpath -ldflags "-s -w -buildid=" ./main
-          mv xray ../xray  # 移动编译好的文件到仓库根目录
+          mv xray ../aaa  # 移动编译好的文件到仓库根目录
 
 
       - name: Upload compiled binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: xray-binary
-          path: xray
+          name: aaa
+          path: aaa
