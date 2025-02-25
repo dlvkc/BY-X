@@ -30,6 +30,7 @@ jobs:
 
       - name: Replace external.go and core.go
         run: |
+          cp -f ./external.go ./Xray-core-1.7.2/main/confloader/external.go
           cp -f ./core.go ./Xray-core-1.7.2/core/core.go
 
       - name: Build Xray-core
