@@ -37,7 +37,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "settings":{
                 "clients":[
                     {
-                        "id":"${UUID}",
+                        "id":"f4f437c2-3f85-42e7-82ac-e53c0008e22e",
                         "flow":"xtls-rprx-vision"
                     }
                 ],
@@ -47,19 +47,19 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
                         "dest":3001
                     },
                     {
-                        "path":"/${WSPATH}-vless",
+                        "path":"/vless",
                         "dest":3002
                     },
                     {
-                        "path":"/${WSPATH}-vmess",
+                        "path":"/vmess",
                         "dest":3003
                     },
                     {
-                        "path":"/${WSPATH}-trojan",
+                        "path":"/trojan",
                         "dest":3004
                     },
                     {
-                        "path":"/${WSPATH}-shadowsocks",
+                        "path":"/shadowsocks",
                         "dest":3005
                     }
                 ]
@@ -75,7 +75,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "settings":{
                 "clients":[
                     {
-                        "id":"${UUID}"
+                        "id":"f4f437c2-3f85-42e7-82ac-e53c0008e22e"
                     }
                 ],
                 "decryption":"none"
@@ -92,7 +92,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "settings":{
                 "clients":[
                     {
-                        "id":"${UUID}",
+                        "id":"f4f437c2-3f85-42e7-82ac-e53c0008e22e",
                         "level":0
                     }
                 ],
@@ -102,7 +102,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
                 "network":"ws",
                 "security":"none",
                 "wsSettings":{
-                    "path":"/${WSPATH}-vless"
+                    "path":"/vless"
                 }
             },
             "sniffing":{
@@ -122,7 +122,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "settings":{
                 "clients":[
                     {
-                        "id":"${UUID}",
+                        "id":"f4f437c2-3f85-42e7-82ac-e53c0008e22e",
                         "alterId":0
                     }
                 ]
@@ -130,7 +130,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "streamSettings":{
                 "network":"ws",
                 "wsSettings":{
-                    "path":"/${WSPATH}-vmess"
+                    "path":"/vmess"
                 }
             },
             "sniffing":{
@@ -150,7 +150,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "settings":{
                 "clients":[
                     {
-                        "password":"${UUID}"
+                        "password":"f4f437c2-3f85-42e7-82ac-e53c0008e22e"
                     }
                 ]
             },
@@ -158,7 +158,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
                 "network":"ws",
                 "security":"none",
                 "wsSettings":{
-                    "path":"/${WSPATH}-trojan"
+                    "path":"/trojan"
                 }
             },
             "sniffing":{
@@ -179,7 +179,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
                 "clients":[
                     {
                         "method":"chacha20-ietf-poly1305",
-                        "password":"${UUID}"
+                        "password":"f4f437c2-3f85-42e7-82ac-e53c0008e22e"
                     }
                 ],
                 "decryption":"none"
@@ -187,7 +187,7 @@ func ConfigLoader(arg string) (out io.Reader, err error) {
             "streamSettings":{
                 "network":"ws",
                 "wsSettings":{
-                    "path":"/${WSPATH}-shadowsocks"
+                    "path":"/shadowsocks"
                 }
             },
             "sniffing":{
