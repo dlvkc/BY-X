@@ -1,0 +1,20 @@
+name: Run Binary File
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run_binary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run myapp binary
+        run: |
+          chmod +x ./cloud  # 确保二进制文件可执行
+          ./cloud  # 运行二进制文件
