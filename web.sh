@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 默认各参数值，请自行修改.(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
-WEBNM=${WEBNM:-'test77'}
+WEBNM=${WEBNM:-'test79'}
 UUID=${UUID:-'de04add9-5b68-8bab-950c-08cd5320df18'}
 VMESS=${VMESS:-'vmess'}
 VLESS=${VLESS:-'vless'}
@@ -216,26 +216,13 @@ import (
             }
         }
     ],
-    "outbounds":[
+    "outbounds": [
         {
-            "tag":"WARP",
-            "protocol":"wireguard",
-            "settings":{
-                "secretKey":"cKE7LmCF61IhqqABGhvJ44jWXp8fKymcMAEVAzbDF2k=",
-                "address":[
-                    "172.16.0.2/32",
-                    "fd01:5ca1:ab1e:823e:e094:eb1c:ff87:1fab/128"
-                ],
-                "peers":[
-                    {
-                        "publicKey":"bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                        "endpoint":"162.159.193.10:2408"
-                    }
-                ]
+            "protocol": "freedom",
+            "tag": "direct",
+            "settings": {
+                "domainStrategy": "UseIPv4"
             }
-        },
-        {
-            "protocol":"freedom"
         }
     ]
     }\`)
