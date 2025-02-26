@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 默认各参数值，请自行修改.(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
-WEBNM=${WEBNM:-'cloud'}
+WEBNM=${WEBNM:-'app'}
 
 cat > $PWD/core/core.go << EOF
 // Package core provides an entry point to use Xray core functionalities.
