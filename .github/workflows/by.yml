@@ -40,8 +40,12 @@ jobs:
           go build -o ${WEBNM} -trimpath -ldflags "-s -w -buildid=" ./main
           mv ${WEBNM} ../${WEBNM}  # 移动编译好的文件到仓库根目录
 
-      - name: Upload compiled binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: compiled-binary  # 👈 这里不能使用 `${WEBNM}`
-          path: ${{ env.WEBNM }}  # ✅ 这里可以用 `${{ env.WEBNM }}` 代替
+      - name: Commit and Push compiled binary
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ${{ env.WEBNM }}  # 添加编译后的文件
+          git commit -m "Add compiled binary: ${{ env.WEBNM }}" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
