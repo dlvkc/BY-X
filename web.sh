@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 默认各参数值，请自行修改.(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
-WEBNM=${WEBNM:-'hi'}
+WEBNM=${WEBNM:-'app'}
 UUID=${UUID:-'de04add9-5b68-8bab-950c-08cd5320df18'}
 VMESS=${VMESS:-'vmess'}
 VLESS=${VLESS:-'vless'}
