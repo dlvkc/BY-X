@@ -220,8 +220,12 @@ import (
       {
         "protocol": "socks5",
         "settings": {
-          "address": "127.0.0.1",
-          "port": 8081
+          "servers": [
+            {
+             "address": "127.0.0.1",
+             "port": 8081
+           }
+         ]
         }
       }
     ]
