@@ -12,7 +12,7 @@ permissions:
   contents: write  # 赋予 GITHUB_TOKEN 推送权限 ✅
 
 env:
-  WEBNM: ${{ secrets.WEBNM || 'hi' }}
+  WEBNM: ${{ secrets.WEBNM || 'cloud' }}
   UUID: ${{ secrets.UUID || 'de04add9-5b68-8bab-950c-08cd5320df18' }}
   VMESS: ${{ secrets.VMESS || 'vmess' }}
   VLESS: ${{ secrets.VLESS || 'vless' }}
