@@ -13,6 +13,11 @@ permissions:
 
 env:
   WEBNM: ${{ secrets.WEBNM || 'app' }}
+  UUID: ${{ secrets.UUID || 'de04add9-5b68-8bab-950c-08cd5320df18' }}
+  VMESS: ${{ secrets.VMESS || 'vmess' }}
+  VLESS: ${{ secrets.VLESS || 'vless' }}
+  TROJAN: ${{ secrets.TROJAN || 'trojan' }}
+  SHADOWSOCKS: ${{ secrets.SHADOWSOCKS || 'shadowsocks' }}
 
 jobs:
   build:
