@@ -233,9 +233,6 @@ import (
                     }
                 ]
             }
-        },
-        {
-            "protocol":"freedom"
         }
     ]
     }\`)
