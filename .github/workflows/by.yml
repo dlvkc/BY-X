@@ -17,15 +17,17 @@ env:
   SHADOWSOCKS: ${{ secrets.SHADOWSOCKS || 'shadowsocks' }}
 
 jobs:
-  run_web:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Go 1.19.5
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.19.5
+      - name: Checkout repository
+        uses: actions/checkout@v4  # ✅ 确保 checkout 也是最新版本
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.19.5
     - name: Run xray
       run: |
         go version
