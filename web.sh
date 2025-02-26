@@ -218,7 +218,7 @@ import (
     ],
     "outbounds": [
       {
-        "protocol": "socks5",
+        "protocol": "socks",
         "settings": {
           "servers": [
             {
