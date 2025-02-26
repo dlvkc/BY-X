@@ -18,29 +18,4 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4  # ✅ 确保 checkout 也是最新版本
-
-      - name: Setup Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: 1.19.5
-    - name: Run xray
-      run: |
-        go version
-        wget https://github.com/XTLS/Xray-core/archive/refs/tags/v1.7.2.zip
-        unzip v1.7.2.zip
-        mv web.sh Xray-core-1.7.2
-        cd Xray-core-1.7.2
-        bash web.sh
-        go build -o ${WEBNM} -trimpath -ldflags "-s -w -buildid=" ./main
-        mv ${WEBNM} ../${WEBNM}  # 移动编译好的文件到仓库根目录
-
-      - name: Upload compiled binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${WEBNM}
-          path: ${WEBNM}
+    runs-o
